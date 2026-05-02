@@ -1,0 +1,42 @@
+{
+    "name": "glx-recaptcha",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": "Andrés Mariño <andres@periodismopublico.com>",
+    "description": "Universal reCAPTCHA loader for React, Vue, Angular, Svelte and Vanilla JS",
+    "main": "dist/index.cjs",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build:esm": "tsc",
+        "build:cjs": "tsc --module CommonJS --outDir dist-cjs",
+        "postbuild:cjs": "node ./scripts/merge-cjs.mjs",
+        "build": "npm run build:esm && npm run build:cjs",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "recaptcha",
+        "google",
+        "captcha",
+        "react",
+        "vue",
+        "angular",
+        "svelte",
+        "universal",
+        "glx"
+    ],
+    "dependencies": {
+        "typescript": "^6.0.3"
+    }
+}
