@@ -20,8 +20,8 @@
     ],
     "scripts": {
         "build:esm": "tsc",
-        "build:cjs": "tsc --module CommonJS --outDir dist-cjs",
-        "postbuild:cjs": "node ./scripts/merge-cjs.mjs",
+        "build:cjs": "tsc --module CommonJS --moduleResolution node --outDir dist-cjs",
+        "postbuild:cjs": "node merge-cjs.mjs",
         "build": "npm run build:esm && npm run build:cjs",
         "prepublishOnly": "npm run build"
     },
@@ -36,7 +36,7 @@
         "universal",
         "glx"
     ],
-    "dependencies": {
-        "typescript": "^6.0.3"
+    "devDependencies": {
+        "typescript": "^5.7.0"
     }
 }

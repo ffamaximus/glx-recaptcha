@@ -1,21 +1,35 @@
+export interface ReCaptchaOptions {
+    theme?: "light" | "dark";
+    size?: "normal" | "compact" | "invisible";
+    tabindex?: number;
+    badge?: "bottomright" | "bottomleft" | "inline";
+}
+
+interface ReCaptcha {
+    render(containerId: string, params: Record<string, any>): number;
+    execute(siteKey: string, options: { action: string }): Promise<string>;
+    reset(widgetId?: number): void;
+}
+
 declare global {
     interface Window {
-        grecaptcha?: any;
+        grecaptcha?: ReCaptcha;
         grecaptchaSiteKey?: string;
     }
 }
 
 /**
  * Render a reCAPTCHA v2 (checkbox or invisible) in a container.
+ * @returns The widget ID which can be used to reset the captcha.
  */
 export function renderV2(
     containerId: string,
     siteKey: string,
     callback: (token: string) => void,
-    options: Record<string, any> = {}
-) {
+    options: ReCaptchaOptions = {}
+): number {
     if (!window.grecaptcha) {
-        throw new Error("grecaptcha not allowed. Asegúrate de llamar antes a loadRecaptcha().");
+        throw new Error("grecaptcha not found. Ensure you call loadRecaptcha() before rendering.");
     }
 
     const params = {
@@ -25,6 +39,16 @@ export function renderV2(
     };
 
     return window.grecaptcha.render(containerId, params);
+}
+
+/**
+ * Resets the reCAPTCHA v2 widget.
+ * @param widgetId - Optional widget ID. If not provided, resets the first created widget.
+ */
+export function resetV2(widgetId?: number) {
+    if (window.grecaptcha) {
+        window.grecaptcha.reset(widgetId);
+    }
 }
 
 /**

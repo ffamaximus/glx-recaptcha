@@ -49,9 +49,12 @@ import { loadRecaptcha, renderV2 } from "glx-recaptcha";
 
 await loadRecaptcha("YOUR_SITE_KEY", "v2");
 
-renderV2("captcha-container", "YOUR_SITE_KEY", (token) => {
   console.log("Verified Token:", token);
 });
+
+// You can reset the widget if needed:
+// import { resetV2 } from "glx-recaptcha";
+// resetV2(widgetId);
 ```
 
 ### 3. reCAPTCHA v3 Implementation
