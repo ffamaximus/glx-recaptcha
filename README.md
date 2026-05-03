@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/glx-recaptcha.svg?style=flat-square)](https://www.npmjs.com/package/glx-recaptcha)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/glx-recaptcha?style=flat-square)](https://bundlephobia.com/result?p=glx-recaptcha)
-[![license](https://img.shields.io/npm/l/glx-recaptcha.svg?style=flat-square)](https://github.com/ffmaximus/glx-recaptcha/blob/master/LICENSE)
+[![license](https://img.shields.io/npm/l/glx-recaptcha.svg?style=flat-square)](https://github.com/ffamaximus/glx-recaptcha/blob/master/LICENSE)
 
 A lightweight, framework-agnostic, universal loader for Google reCAPTCHA v2 and v3. Designed for modern web applications with zero dependencies and a focus on performance.
 
